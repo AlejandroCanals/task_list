@@ -6,7 +6,7 @@ from .forms import TaskForm
 
 def task_list(request):
     tasks = Task.objects.all()
-    return render(request,'tasks/task_list.html', {'tasks': tasks})
+    return render(request,'app/task_list.html', {'tasks': tasks})
 
 def add_task(request):
     if request.method == 'POST':
@@ -17,12 +17,13 @@ def add_task(request):
     
     else:
         form = TaskForm()
-    return render(request,'tasks/add_task.html',{'form': form})
+    return render(request,'app/add_task.html',{'form': form})
 
 def delete_task(request,task_id):
     task = get_object_or_404(Task, id=task_id)
+    
     if request.method == 'GET':
-        return render(request, 'tasks/delete_task.html', {'task': task})
+        return render(request, 'app/delete_task.html', {'task': task})
     elif request.method == 'POST':
         task.delete()
         return redirect('task_list')
