@@ -74,16 +74,6 @@ WSGI_APPLICATION = 'task_list.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'task_list',
-        'USER': 'postgres',
-        'PASSWORD': 'adminpostgres',
-        'HOST': 'localhost',  # Si PostgreSQL está en tu máquina local
-        'PORT': '5432',       # Puerto por defecto de PostgreSQL
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
