@@ -11,11 +11,17 @@
                 <strong>{{ task.title }}</strong><br>
                 {{ task.description }}<br>
                 Completed: {{ task.completed }}
-                
+                <form action="{% url 'update_task' task.id %}" method="get" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit">Update</button>
+                </form>   
                 <form action="{% url 'delete_task' task.id %}" method="get" style="display: inline;">
                     {% csrf_token %}
                     <button type="submit">Delete</button>
-                </form>            </li>
+                </form>
+       
+            
+            </li>
         {% endfor %}
     </ul>
     <a href="{% url 'add_task' %}">Add Task</a>
